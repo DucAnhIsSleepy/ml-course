@@ -54,7 +54,7 @@ plt.legend()
 plt.show()
 
 #with ridge
-alpha = 0
+alpha = 0.0005
 
 model_ridge = make_pipeline(
     PolynomialFeatures(degree, include_bias=False),
@@ -81,6 +81,46 @@ plt.plot(x_plot, y_plot_ridge, color='green', label='Ridge Prediction', linewidt
 plt.title(
     f"With Ridge Regularization (alpha={alpha})\n"
     f"Train MSE: {train_mse_ridge:.2f}, Test MSE: {test_mse_ridge:.2f}, Degree: {degree}, Alpha: {alpha}"
+)
+
+plt.ylim(-3, 3)
+plt.grid(True, alpha=0.3)
+plt.legend()
+plt.show()
+
+#with lasso
+from sklearn.linear_model import Lasso
+
+alpha = 0.0005
+
+max_iter = 10000
+
+model_lasso = make_pipeline(
+    PolynomialFeatures(degree, include_bias=False),
+    StandardScaler(),
+    Lasso(alpha=alpha, max_iter=max_iter)
+)
+
+model_lasso.fit(X_train, y_train)
+
+y_plot_lasso = model_lasso.predict(x_plot)
+y_train_pred_lasso = model_lasso.predict(X_train)
+y_test_pred_lasso = model_lasso.predict(X_test)
+
+train_mse_lasso = mean_squared_error(y_train, y_train_pred_lasso)
+test_mse_lasso = mean_squared_error(y_test, y_test_pred_lasso)
+
+plt.figure(figsize=(8, 5))
+
+plt.scatter(X_train, y_train, label="Training data", s=70)
+plt.scatter(X_test, y_test, label="Test data", s=70)
+
+plt.plot(x_plot, y_plot_lasso, linewidth=3, label="Lasso model prediction")
+
+plt.title(
+    f"With Lasso Regularization\n"
+    f"Degree = {degree} | Alpha = {alpha} | "
+    f"Train MSE = {train_mse_lasso:.3f} | Test MSE = {test_mse_lasso:.3f}"
 )
 
 plt.ylim(-3, 3)
