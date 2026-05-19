@@ -24,7 +24,7 @@ Clone [the repository](https://github.com/USTH-classroom/ml-course) `git clone g
 | 4 | Regularization | [📄 Slides](./4-Regularization/4-reg.pdf) | [Notebook](./4-Regularization/04.md) | ✅ Available | 
 | 5 | PCA | [📄 Slides](./5-Principal-Component-Analysis/5-dim-reduc.pdf) | [Notebook](./5-Principal-Component-Analysis/05.md) | ✅ Available | 
 | 6 | Neural Networks | [📄 Slides](./6-Neural-Networks/6-nns.pdf) | [Notebook](./6-Neural-Networks/06.md) | ✅ Available | 
-| 7 | Bayes Classification | [Coming soon](./coming-soon.md) | [Coming soon](./coming-soon.md) | 🚧 Coming soon | 
+| 7 | Bayes Classification | [📄 Slides](./7-Bayes-Classification/7-bayes.pdf) | [Coming soon](./7-Bayes-Classification/07.md) | ✅ Available | 
 
 ---
 
